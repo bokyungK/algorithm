@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>삼각형 판별하기</title>
+    </head>
+    <body>
+        <script>
+            function solution(a, b, c){
+                let answer="YES", max, otherNum;
+
+                // 1. 가장 긴 길이 찾기
+                max = Math.max(a, b, c);
+                
+                // 2. 나머지 두 개 길이 더하기
+                let arr = [a, b, c];
+                let index = arr.indexOf(max);
+                arr.splice(index, 1);
+                otherNum = arr.reduce((a, b) => a + b, 0);
+
+                // 3. 1번과 2번을 비교하기 (2가 크면 출력, 1이 크면 no로 변경 후 출력)
+                if (max >= otherNum) answer = "No";
+
+                return answer;
+            }
+
+            console.log(solution(6, 7, 11));
+        </script>
+    </body>
+</html>
