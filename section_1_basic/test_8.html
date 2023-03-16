@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>일곱난쟁이</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){
+                let answer=arr;
+                let sum= answer.reduce((a, b) => a+b, 0);
+                const over = sum - 100;
+                const length = arr.length;
+
+                for (let i = 0; i < length; i++) {
+                    for (let j = i + 1; j < length; j++) {
+                        if (arr[i] + arr[j] === 40) {
+                            arr.splice(i, 1);
+                            arr.splice(j-1, 1);
+                        }
+                    }
+                }
+                
+                return answer;
+            }
+            
+            let arr=[20, 7, 23, 19, 10, 15, 25, 8, 13];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>

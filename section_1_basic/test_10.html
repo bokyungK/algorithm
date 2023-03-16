@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>문자 찾기</title>
+    </head>
+    <body>
+        <script>
+            function solution(s, t){
+                let answer=0;
+                let arr = Array.from(s);
+
+                arr = arr.filter((string) => {
+                    return string === t;
+                })
+                answer = arr.length;
+
+                return answer;
+            }
+            
+            let str="COMPUTERPROGRAMMING";
+            console.log(solution(str, 'R'));
+        </script>
+    </body>
+</html>

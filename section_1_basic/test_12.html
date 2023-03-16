@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>대문자로 통일</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){         
+                let answer="";
+                let upper = Array.from(str.toUpperCase());
+
+                upper.forEach((string, idx) => {
+                    if (string === str[idx]) upper[idx] = string.toLowerCase();
+                    else upper[idx] = string.toUpperCase();
+                })
+
+                answer = upper.join('');
+            
+                return answer;
+            }
+
+            let str="ItisTimeToStudy";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>

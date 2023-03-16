@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+                let answer="";
+                const arr = Array.from(str);
+                arr.forEach((s, idx) => {
+                    if (s === 'A') arr[idx] = '#';
+                })
+                answer = arr.join('');
+
+                return answer;
+            }
+            
+            let str="BANANA";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
