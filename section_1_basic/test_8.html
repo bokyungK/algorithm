@@ -6,8 +6,8 @@
     <body>
         <script>
             function solution(arr){
-                let answer=arr;
-                let sum= answer.reduce((a, b) => a+b, 0);
+                let answer = arr;
+                let sum = answer.reduce((a, b) => a + b, 0);
                 const over = sum - 100;
                 const length = arr.length;
 
@@ -16,11 +16,10 @@
                         if (arr[i] + arr[j] === 40) {
                             arr.splice(i, 1);
                             arr.splice(j-1, 1);
+                            return answer;
                         }
                     }
                 }
-                
-                return answer;
             }
             
             let arr=[20, 7, 23, 19, 10, 15, 25, 8, 13];
