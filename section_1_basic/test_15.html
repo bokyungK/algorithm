@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>가운데 문자 출력</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){  
+                let answer;
+                const len = s.length;
+                const idx = parseInt(len / 2);
+
+                // 문자열 짝, 홀 판별
+                if (len % 2 === 1) answer = s.slice(idx, idx + 1); // 홀수 : 몫이 가운데 index
+                else answer = s.slice(idx - 1, idx + 1); // 짝수인 : 몫과 몫-1이 가운데 index
+                
+                return answer;
+            }
+            console.log(solution("good"));
+        </script>
+    </body>
+</html>

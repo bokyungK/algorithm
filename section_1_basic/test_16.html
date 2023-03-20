@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>중복문자제거</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){  
+                let answer="";
+ 
+                // answer에 하나씩 담고, 이미 있으면 담지 않기.
+                for (let str of s) {
+                    if (!answer.includes(str)) answer += str;
+                }
+
+                return answer;
+            }
+            console.log(solution("sdfsdfsdf"));
+        </script>
+    </body>
+</html>

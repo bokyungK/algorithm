@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>중복단어제거</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){  
+                const answer = [];
+  
+                // answer에 없으면 담고, 있으면 반복문 넘어가기
+                for (let word of s) {
+                    if (!answer.includes(word)) answer.push(word);
+                }
+
+                return answer;
+            }
+            let str=["good", "time", "good", "time", "student"];
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
