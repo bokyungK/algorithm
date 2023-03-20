@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>가장 긴 문자열</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){  
+                let answer="", max=Number.MIN_SAFE_INTEGER;
+
+                for (let txt of s) {
+                    const len = txt.length;
+
+                    if (len > max) {
+                        max = len;
+                        answer = txt;
+                    }
+                }
+
+                return answer;
+            }
+            let str=["teacher", "time", "student", "beautiful", "good"];
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
