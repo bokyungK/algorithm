@@ -6,9 +6,14 @@
     <body>
         <script>
             function solution(s){         
-                let answer=0;
-
-                answer = s.toUpperCase();
+                let answer = 0;
+                const arr = Array.from(s.toUpperCase());
+                
+                arr.forEach((v, i) => {
+                    if (v === s[i]) {
+                        answer++;
+                    }
+                })
 
                 return answer;
             }

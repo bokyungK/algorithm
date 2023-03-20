@@ -6,16 +6,9 @@
     <body>
         <script>
             function solution(s){         
-                let answer="";
-                let upper = Array.from(str.toUpperCase());
+                let answer=0;
+                answer = s.toUpperCase();
 
-                upper.forEach((string, idx) => {
-                    if (string === str[idx]) upper[idx] = string.toLowerCase();
-                    else upper[idx] = string.toUpperCase();
-                })
-
-                answer = upper.join('');
-            
                 return answer;
             }
 

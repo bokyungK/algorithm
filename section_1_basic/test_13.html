@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>대소문자 변환</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){         
+                let answer="";
+
+                for (let v of s) {
+                    if (v === v.toUpperCase()) {
+                        answer += v.toLowerCase();
+                    } else {
+                        answer += v.toUpperCase();
+                    }
+                }
+
+                // or
+                // let upper = Array.from(str.toUpperCase());
+
+                // upper.forEach((string, idx) => {
+                //     if (string === str[idx]) upper[idx] = string.toLowerCase();
+                //     else upper[idx] = string.toUpperCase();
+                // })
+
+                // answer = upper.join('');
+            
+                return answer;
+            }
+
+            console.log(solution("StuDY"));
+        </script>
+    </body>
+</html>
