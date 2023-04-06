@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>유효한 팰린드롬</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+                let answer, lower = s.toLowerCase();
+                let reverse = '', clear = '';
+
+                // 특수문자 제거
+                for (let i = 0; i < lower.length; i++) {
+                    let ascii = lower[i].charCodeAt(0);
+                    
+                    if (ascii >= 97 && ascii <= 122) {
+                        clear += lower[i];
+                    }
+                }
+
+                // 문자열 뒤집기
+                reverse = clear.split('').reverse().join('');
+
+                // 결과 비교
+                if (reverse === clear) answer = 'YES';
+                else answer = 'NO';
+
+                return answer;
+            }
+            
+            let str="found7, time: study; Yduts; emit, 7Dnuof";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>

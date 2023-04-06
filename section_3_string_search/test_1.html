@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>회문문자열</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+                let answer, reverse = ''; // += 연산자 사용하는 경우 초기화 유의
+                let lower = s.toLowerCase();
+
+                for (let i = s.length - 1; i >= 0; i--) { // i가 하나씩 작아지는 경우 범위 작성 쥐의
+                    reverse += lower[i];
+                }
+                reverse === lower ? answer = 'YES' : answer = 'NO';
+
+                // or
+                // let answer, lower = s.toLowerCase();
+                // let reverse = lower.split('').reverse().join('');
+
+                // reverse === lower ? answer = 'YES' : answer = 'NO';
+
+                return answer;
+            }
+            
+            let str="gooG";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
