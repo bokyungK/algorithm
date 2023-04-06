@@ -6,40 +6,32 @@
     <body>
         <script>
             function solution(arr) {
-                let answer, row = [], col = [], diag = [0, 0];
-
-                arr.forEach((item) => {
-                    row.push(item.reduce((a, b) => a + b, 0));
-                })
+                let answer = Number.MIN_SAFE_INTEGER;
+                let row, col
+                let left = right = 0;
 
                 for (let i = 0; i < arr.length; i++) {
-                    let rowSum = 0;
-                    let colSum = 0;
+                    let row = 0;
+                    let col = 0;
 
                     for (let j = 0; j < arr.length; j++) {
-                        // row
-                        rowSum += arr[i][j];
-
-                        // col
-                        colSum += arr[j][i];
-
-                        // left diag
+                        // row, col
+                        row += arr[i][j];
+                        col += arr[j][i];
+                        
+                        // diag
                         if (i === j) {
-                            diag[0] += arr[i][j];
+                            left += arr[i][j];
                         }
 
-                        // right diag
                         if (i + j === arr.length - 1) {
-                            diag[1] += arr[i][j];
+                            right += arr[i][j];
                         }
                     }
-                    row.push(rowSum);
-                    col.push(colSum);
+                    answer = Math.max(answer, row, col);
                 }
 
-                answer = row.concat(col);
-                answer = answer.concat(diag);
-                answer = Math.max(...answer);
+                answer = Math.max(answer, left, right);
                 
                 return answer;
             }

@@ -6,19 +6,19 @@
     <body>
         <script>
             function solution(s){
-                let answer, reverse = ''; // += 연산자 사용하는 경우 초기화 유의
-                let lower = s.toLowerCase();
+                let answer = 'YES';
+                s = s.toLowerCase();
+                let len = s.length;
 
-                for (let i = s.length - 1; i >= 0; i--) { // i가 하나씩 작아지는 경우 범위 작성 쥐의
-                    reverse += lower[i];
+                for (let i = 0; i < Math.floor(len/2); i++) {
+                    if (s[i] !== s[len - 1 - i]) return 'NO';
                 }
-                reverse === lower ? answer = 'YES' : answer = 'NO';
 
                 // or
-                // let answer, lower = s.toLowerCase();
-                // let reverse = lower.split('').reverse().join('');
-
-                // reverse === lower ? answer = 'YES' : answer = 'NO';
+                // let answer, s = s.toLowerCase();
+                // let reverse = s.split('').reverse().join('');
+                
+                // reverse === s ? answer = 'YES' : answer = 'NO';
 
                 return answer;
             }

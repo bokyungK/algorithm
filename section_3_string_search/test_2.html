@@ -6,25 +6,11 @@
     <body>
         <script>
             function solution(s){
-                let answer, lower = s.toLowerCase();
-                let reverse = '', clear = '';
+                let answer = 'YES';
+                s = s.toLowerCase().replace(/[^a-z]/g, '');
 
-                // 특수문자 제거
-                for (let i = 0; i < lower.length; i++) {
-                    let ascii = lower[i].charCodeAt(0);
-                    
-                    if (ascii >= 97 && ascii <= 122) {
-                        clear += lower[i];
-                    }
-                }
-
-                // 문자열 뒤집기
-                reverse = clear.split('').reverse().join('');
-
-                // 결과 비교
-                if (reverse === clear) answer = 'YES';
-                else answer = 'NO';
-
+                if (s.split('').reverse().join('') !== s) return 'NO';
+                
                 return answer;
             }
             
