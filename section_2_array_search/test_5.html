@@ -6,19 +6,11 @@
     <body>
         <script>
             function solution(arr){  
-                let answer = new Array(arr.length).fill(0) // 배열 초기화 처리 주의
-                let order = [...arr].sort((a, b) => b - a); // sort return 값에 따라 다르게 적용되는 것 주의
-                let compare = 101, value;
+                let answer = [];
+                let order = [...arr].sort((a, b) => b - a);
 
                 for (let i = 0; i < arr.length; i++) {
-                    if (compare === order[i]) answer[arr.indexOf(order[i])] = value;
-                    else {
-                        compare = order[i];
-                        value = i + 1;
-                        answer[arr.indexOf(order[i])] = value;
-                    }
-
-                    arr[arr.indexOf(order[i])] = 'X'; // 방문 처리는 모든 조건에서 필요
+                    answer.push(order.indexOf(arr[i]) + 1);
                 }
 
                 return answer;
