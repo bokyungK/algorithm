@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>숫자만 추출</title>
+    </head>
+    <body>
+        <script>
+            function solution(str) {
+                let answer='';
+
+                // 반복문으로 순회
+                for (let s of str) {
+                    let ascii = s.charCodeAt();
+
+                    // 조건문으로 숫자인지 체크
+                    if (ascii >= 48 && ascii <= 57) {
+                        // 숫자면 answer에 추가
+                        answer += s;
+                    }
+                }
+                
+                return parseInt(answer);
+            }
+            
+            let str="g0en2T0s8eSoft";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
