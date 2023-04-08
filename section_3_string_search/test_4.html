@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>가장 짧은 문자거리</title>
+    </head>
+    <body>
+        <script>
+            function solution(s, t) {
+                let answer = [];
+                let cnt = 100;
+
+                for (let x of s) {
+                    if (x === t) cnt = 0;
+                    else cnt++;
+
+                    answer.push(cnt);
+                }
+
+                for (let i = s.length - 1; i >= 0; i--) {
+                    if (s[i] === t) cnt = 0;
+                    else cnt++;
+
+                    if (cnt <= answer[i]) {
+                        answer[i] = cnt;
+                    }
+                }
+
+                return answer;
+            }
+            let str="teachermode";
+            console.log(solution(str, 'e'));
+        </script>
+    </body>
+</html>
