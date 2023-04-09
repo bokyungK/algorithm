@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>문자열 압축</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+                let answer = '';
+                let cnt = 1;
+
+                answer += s[0];
+
+                // 이전 문자와 현재 문자를 비교
+                for (let i = 1; i < s.length; i++) {
+                    // 이전 === 현재
+                    if (s[i - 1] === s[i]) {
+                        cnt++;
+                    } else {
+                    // 이전 !== 현재
+                        if (cnt !== 1) {
+                            answer += cnt;
+                            cnt = 1;
+                        }
+                        answer += s[i];
+                    }
+                }
+
+                // 마지막 자리에 연속하는 경우 따로 처리
+                if (cnt !== 1) {
+                    answer += cnt;
+                }
+
+                return answer;
+            }
+            
+            let str="KKHSSSSSSSEE";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
