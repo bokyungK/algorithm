@@ -16,12 +16,13 @@
                     answer.push(cnt);
                 }
 
+                cnt = 100;
+                
                 for (let i = s.length - 1; i >= 0; i--) {
                     if (s[i] === t) cnt = 0;
-                    else cnt++;
-
-                    if (cnt <= answer[i]) {
-                        answer[i] = cnt;
+                    else {
+                        cnt++;
+                        answer[i] = Math.min(answer[i], cnt);
                     }
                 }
 
