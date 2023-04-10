@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>자릿수의 합</title>
+    </head>
+    <body>
+        <script>
+            function solution(n, arr) {
+                let answer;
+                let max = Number.MIN_SAFE_INTEGER;
+
+                // 외부 for문 : 배열 순회
+                for (let i = 0; i < arr.length; i++) {
+                    let sum = 0;
+                    let num = arr[i];
+
+                    // 내부 for 문 : sum 합산, max 비교
+                    for (let j = 0; j < String(arr[i]).length; j++) { // j가 점점 작아지는 경우 -- 깜빡하지 말기, 숫자인데 length를 쓰니까 에러나지!
+                        sum += parseInt(String(arr[i]).substr(j, 1));
+                    }
+
+                    if (sum > max) {
+                        max = sum;
+                        answer = arr[i];
+                    } else if (sum === max && arr[i] > answer) {
+                        max = sum;
+                        answer = arr[i];
+                    }
+                }
+
+                return answer;
+            }
+            
+            let arr=[128, 460, 603, 40, 521, 137, 123];
+            console.log(solution(7, arr));
+        </script>
+    </body>
+</html>
