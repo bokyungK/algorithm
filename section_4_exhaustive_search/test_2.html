@@ -9,20 +9,17 @@
                 let answer = [];
 
                 for (let num of arr) {
-                    let reverse = parseInt(String(num).split('').reverse().join(''));
+                    let reverse = parseInt(num.toString().split('').reverse().join(''));
                     let flag = 1;
 
-                    for (let i = 1; i < reverse + 1; i++) {
+                    for (let i = 2; i <= parseInt(Math.sqrt(reverse)); i++) {
                         if (reverse % i === 0) {
-                            if (i === 1 || i === reverse) continue;
-                            else {
-                                flag = 0;
-                                break;
-                            }
+                            flag = 0;
+                            break;
                         }
                     }
 
-                    if (flag === 1 && reverse !== 1) {
+                    if (flag && reverse !== 1) {
                         answer.push(reverse);
                     }
                 }
