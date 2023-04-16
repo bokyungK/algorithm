@@ -7,24 +7,29 @@
         <script>
             function solution(m, product){
                 let answer = 0;
+                let max = Number.MIN_SAFE_INTEGER;
                 product.sort((a, b) => a[0] + a[1] - (b[0] + b[1]));
-                
+        
+                // 합한 값이 작은 물품 순으로 구매
                 for (let price of product) {
                     let sum = price[0] + price[1];
                     if (sum <= m) {
+                        if (price[0] > max) {
+                            max = price[0];
+                        }
                         m -= sum;
                         answer++;
-                        product.shift();
-                    } else break;     
+                    } else break;
                 }
 
-                if (product.length === 1) {
-                    let sum = product[0][0] / 2 + product[0][1];
-                    if (sum <= m) answer++;
-                } else if (product.length > 1) {
+                // 합한 값 중에서 가장 값이 비싼 물품 또는 합하지 않은 물품들에 할인을 적용했을 때, 물품을 더 많이 구입할 수 있다면 카운트하기
+                if (answer !== product.length) {
+                    product.splice(0, answer);
                     for (let price of product) {
-                        let sum = price[0] / 2 + price[1];
-                        if (sum <= m) answer++;
+                        if (price[0] + price[1] <= m + max / 2 || price[0] / 2 + price[1] <= m) {
+                            answer++;
+                            break;
+                        }
                     }
                 }
 
@@ -36,9 +41,3 @@
         </script>
     </body>
 </html>
-
-4 7 9 12 11
-
-31
-
-20 28
