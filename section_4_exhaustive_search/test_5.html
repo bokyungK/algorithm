@@ -18,6 +18,8 @@
                 }
 
                 sum.sort((a, b) => {return b - a});
+                sum = new Set(sum);
+                sum = [...sum];
                 answer = sum[k - 1];
 
                 return answer;
