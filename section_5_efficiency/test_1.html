@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>두 배열 합치기</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr1, arr2){
+                let answer = arr1.concat(arr2);
+
+                answer.sort((a, b) => a - b);
+                
+                return answer;
+            }
+            
+            let a=[1, 3, 5];
+            let b=[2, 3, 6, 7, 9];
+            console.log(solution(a, b));
+        </script>
+    </body>
+</html>
