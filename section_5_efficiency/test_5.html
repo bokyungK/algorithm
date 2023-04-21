@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>최대 매출</title>
+    </head>
+    <body>
+        <script>
+            function solution(k, arr) {
+                let answer;
+                let max = Number.MIN_SAFE_INTEGER;
+
+                for (let i = 0; i < arr.length; i++) {
+                    let sum = 0;
+                    for (let j = i; j < i+k; j++) {
+                        sum += arr[j];
+                    }
+                    if (sum > max) max = sum;
+                }
+
+                answer = max;
+                return answer;
+            }
+            
+            let a=[12, 15, 11, 20, 25, 10, 20, 19, 13, 15];
+            console.log(solution(3, a));
+        </script>
+    </body>
+</html>
