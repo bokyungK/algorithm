@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>학급 회장(해쉬)</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){  
+                let answer = [0, 0, 0, 0, 0];
+
+                for (let vote of s) {
+                    let ascii = vote.toString().charCodeAt() - 65;
+                    answer[ascii] += 1;
+                }
+
+                answer = 65 + answer.indexOf(Math.max(...answer));
+                answer = String.fromCharCode(answer);
+
+                return answer;
+            }
+
+            let str="BACBACCACCBDEDE";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
