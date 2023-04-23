@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>아나그램(해시)</title>
+    </head>
+    <body>
+        <script>
+            function solution(str1, str2){
+                let answer;
+
+                for (let s of str1) {
+                    let check = str2.indexOf(s);
+                    if (check > -1) str2 = str2.replace(s, '');
+                }
+                
+                str2.length ? answer = 'NO' : answer = 'YES';
+                return answer;
+            }
+            
+            let a="AbaAeCe";
+            let b="baeeACA";
+            console.log(solution(a, b));
+        </script>
+    </body>
+</html>
