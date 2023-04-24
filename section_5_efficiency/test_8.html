@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>모든 아나그램 찾기</title>
+    </head>
+    <body>
+        <script>
+            function solution(s, t){
+                let answer = 0;
+
+                for (let i = 0; i <= s.length - t.length; i++) {
+                    let copy = t;
+                    for (let j = i; j < i + t.length; j++) {
+                        if (copy.includes(s[j])) copy = copy.replace(s[j], '');
+                    }
+                    if (copy.length === 0) answer++;
+                }
+                
+                return answer;
+            }
+            
+            let a="bacaAacba";
+            let b="abc";
+            console.log(solution(a, b));
+        </script>
+    </body>
+</html>
