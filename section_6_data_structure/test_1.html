@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>올바른 괄호</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+                let answer;
+                let temp = true;
+
+                while(temp) {
+                    let idx = s.includes('()');
+                    if (idx) s = s.replace('()', '');
+                    else temp = false;
+                }
+                s.length ? answer = 'NO' : answer = 'YES';
+                
+                return answer;
+            }
+            
+            let a="(()(()))(()";
+            console.log(solution(a));
+        </script>
+    </body>
+</html>
