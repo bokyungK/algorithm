@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>괄호문자제거</title>
+    </head>
+    <body>
+        <script>
+            function solution(s) {
+                let answer;
+                let cnt = 0;
+
+                for (let alphabet of s) {
+                    if (alphabet === '(') {
+                        cnt++;
+                        s = s.replace(alphabet, '');
+                    } else if (alphabet === ')') {
+                        cnt--;
+                        s = s.replace(alphabet, '');
+                    } else {
+                        if (cnt > 0) s = s.replace(alphabet, '');
+                    }
+                }
+                answer = s;
+
+                return answer;
+            }
+
+            let str="(A(BC)D)EF(G(H)(IJ)K)LM(N)";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
