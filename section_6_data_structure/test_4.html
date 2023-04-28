@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>후위식 연산</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+                let answer;
+                let idx = 0;
+                s = Array.from(s);
+
+                function cal (operator) {
+                    const operand1 = Number(s[idx-2]);
+                    const operand2 = Number(s[idx-1]);
+
+                    if (operator === '+') s[idx-2] = operand1 + operand2;
+                    else if (operator === '-') s[idx-2] = operand1 - operand2;
+                    else if (operator === '*') s[idx-2] = operand1 * operand2;
+                    else s[idx-2] = operand1 / operand2;
+
+                    s.splice(idx-1, 2);
+                    idx--;
+                }
+
+                while (s.length > 1) {
+                    let operator = s[idx];
+                    
+                    if (operator === "+") {
+                        cal(operator);
+                    } else if (operator === '-') {
+                        cal(operator);
+                    } else if (operator === '*') {
+                        cal(operator);
+                    } else if (operator=== '/') {
+                        cal(operator);
+                    } else {
+                        idx++;
+                    }
+                }
+                
+                answer = s[0];
+                return answer;
+            }
+
+            let str="356+*9-";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
