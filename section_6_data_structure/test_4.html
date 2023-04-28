@@ -24,26 +24,15 @@
                 }
 
                 while (s.length > 1) {
-                    let operator = s[idx];
-                    
-                    if (operator === "+") {
-                        cal(operator);
-                    } else if (operator === '-') {
-                        cal(operator);
-                    } else if (operator === '*') {
-                        cal(operator);
-                    } else if (operator=== '/') {
-                        cal(operator);
-                    } else {
-                        idx++;
-                    }
+                    if (isNaN(s[idx])) cal(s[idx]);
+                    else idx++;
                 }
                 
                 answer = s[0];
                 return answer;
             }
 
-            let str="356+*9-";
+            let str="352+*9-";
             console.log(solution(str));
         </script>
     </body>
