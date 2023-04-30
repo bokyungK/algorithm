@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>쇠막대기</title>
+    </head>
+    <body>
+        <script>
+            function solution(s) {
+                let answer = 0;
+
+                // 쉽게 식별하기 위해 '()' 를 특정 값으로 교체
+                while (s.includes('()')) { // includes는 true와 false를 반환
+                    s = s.replace('()', '0'); // replace는 다시 변수에 대입해야 적용됨
+                }
+
+                // 바깥 괄호부터 시작과 끝 사이에 존재하는 '0 개수 + 1'을 answer에 합산
+                for (let i = 0; i < s.length; i++) {
+                    if (s[i] === '(') {
+                        let cnt = 1;
+                        let sum = 0;
+                        for (let j = i+1; j < s.length; j++) {
+                            if (s[j] === '(') cnt++;
+                            else if (s[j] === '0') sum++; // 문자열 내부에 '()'를 0으로 대체했기 때문에 0은 string 타입임
+                            else {
+                                cnt--;
+                                if (cnt === 0) {
+                                    answer += (sum + 1);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+                return answer;
+            }
+            let a="(((()(()()))(())()))(()())";
+            console.log(solution(a));
+        </script>
+    </body>
+</html>
