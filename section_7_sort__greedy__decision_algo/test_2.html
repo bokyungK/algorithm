@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>버블정렬</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){
+                let answer;
+                let len = arr.length - 1;
+                
+                for (let i = 0; i < len; i++) {
+                    let temp;
+                    for (let j = i; j < len; j++) {
+                        if (arr[j] > arr[j+1]) {
+                            temp = arr[j];
+                            arr[j] = arr[j+1];
+                            arr[j+1] = temp;
+                        }
+                    }
+                }
+                answer = arr;
+
+                return answer;
+            }
+
+            let arr=[13, 5, 11, 7, 23, 15];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
