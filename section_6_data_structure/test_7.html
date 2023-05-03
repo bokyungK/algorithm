@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>교육과정 설계</title>
+    </head>
+    <body>
+        <script>
+            function solution(need, plan){
+                let answer = '';
+                let compare = '';
+
+                for (let lecture of plan) {
+                    if (need.includes(lecture)) compare += lecture;
+                }
+                need === compare ? answer = 'YES' : answer = 'NO';
+
+                return answer;
+            }
+
+            let a="CBA";
+            let b="CCBDAGE";
+            console.log(solution(a, b));
+        </script>
+    </body>
+</html>
