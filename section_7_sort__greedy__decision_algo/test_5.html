@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Least Recently Used(카카오 캐시 문제 변형)</title>
+    </head>
+    <body>
+        <script>
+            function solution(size, arr){
+                let answer = [];
+
+                arr.forEach((num) => {
+                    if (answer.includes(num)) answer.splice(answer.indexOf(num), 1);
+                    answer.unshift(num);
+                })
+
+                answer = answer.splice(0, 5);
+
+                return answer;
+            }
+
+            let arr=[1, 2, 3, 2, 6, 2, 3, 5, 7];
+            console.log(solution(5, arr));
+        </script>
+    </body>
+</html>
