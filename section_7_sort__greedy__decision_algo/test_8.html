@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>회의실 배정</title>
+    </head>
+    <body>
+        <script>
+            function solution(meeting){
+                let answer;
+                let max = Number.MIN_SAFE_INTEGER;
+                let len = meeting.length;
+                meeting.sort((a, b) => a[0] - b[0]);
+
+                for (let i = 0; i < len; i++) {
+                    let sum = 1;
+                    let temp = meeting[i][1];
+                    
+                    for (let j = i+1; j < len; j++) {
+                        if (temp <= meeting[j][0]) {
+                            sum++;
+                            temp = meeting[j][1];
+                        }
+                    }
+
+                    if (sum > max) max = sum;
+                }
+
+                answer = max;
+                return answer;
+            }
+
+            let arr=[[1, 4], [2, 3], [3, 5], [4, 6], [5, 7]];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
