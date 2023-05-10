@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>결혼식</title>
+    </head>
+    <body>
+        <script>
+            function solution(times){
+                let answer = [];
+                let cnt;
+                times.sort((a, b) => a[0] - b[0]);
+
+                for (let time of times) {
+                    for (let i = time[0]; i < time[1]; i++) {
+                        answer.push(i);
+                    }
+                }
+
+                cnt = new Array(Math.max(...answer)).fill(0); // !new Array(arrayLength);
+
+                for (let time of answer) {
+                    cnt[time-1]++;
+                }
+
+                answer = Math.max(...cnt);
+                return answer ;
+            }
+
+            let arr=[[14, 18], [12, 15], [15, 20], [20, 30], [5, 14]];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
