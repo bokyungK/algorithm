@@ -1,2 +1,2 @@
 # algorithm
-Practice coding test with javascript
+Practice coding test with javascript and python
