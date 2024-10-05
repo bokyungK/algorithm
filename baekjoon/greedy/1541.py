@@ -2,10 +2,12 @@
 formula = input()
 minusIdx = formula.find('-')
 
+def getSum(string):
+    return sum(list(map(int, string.split('+'))))
+
 if minusIdx < 0:
-    total = list(map(int, formula.split('+')))
-    print(sum(total))
+    print(getSum(formula))
 else:
-    left = list(map(int, formula[:minusIdx].split('+')))
-    right = list(map(int, formula[minusIdx+1:].replace('-', '+').split('+')))
-    print(sum(left) - sum(right))
+    left = formula[:minusIdx]
+    right = formula[minusIdx + 1:].replace('-', '+')
+    print(getSum(left) - getSum(right))
